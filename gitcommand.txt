@@ -1,0 +1,95 @@
+一、Git 安装与配置
+1.安装
+window直接安装就行了
+2.Git配置
+新电脑安装的Git，必须声明自己的身份，便于以后与GitHub交互。
+命令：
+Git config --global user.name “Your name”
+Git config --global user.email “email@example.com"
+二、创建本地版本库
+1.在本地电脑任意目录创建文件夹，如：demo
+2.进入该文件夹进行初始化操作
+$cd ./demo
+$git init
+三、Git常用命令
+Git add *.txt  /  git add *
+添加本地修改文件到缓存
+Git commit -m "message"
+提交缓存文件到仓库
+Git log   /  Git log --pretty=oneline
+查看版本提交记录
+git reset --hard 'commit_id'
+回退到指定id的版本
+git reflog 
+查看使用命令历史
+git status 
+查看状态
+git diff HEAD -- <file>
+查看工作区和版本库的区别
+git checkout -- <file>
+回退本地版本到最近一次add或者commint版本（误删文件也可以使用）
+git reset HEAD <file>
+回退缓存区版本至上一次commit版本(缓存区之commit之后的地方)
+git rm <file>
+git commit -m "remove file"
+删除本地和版本库中的文件
+git remote add origin "...."
+关联本地仓库到origin(远程库)
+git push -u master(仓库名)
+推送缓存区代码到远程仓库
+git clone <git地址>
+克隆远程git仓库到本地
+$git branch dev
+创建dev分支
+$git checkout dev
+切换到dev分支
+$git merge dev
+合并dev分支代码到当前分支
+$git branch -d dev   /   git branch -D feature-vulcan
+删除dev分支   /   强制删除分支
+$git branch
+查看所有分支
+$git merge --no-ff -m "msg" dev
+禁用fast froward模式，合并并提交dev分支代码
+$git stash
+暂时封存当前工作区
+$git stash list 
+查看封存列表
+$git stash apply stash@{0}
+回到封存点
+$git stash drop
+删除封存
+$git remote -v
+查看远端仓库信息
+$ git checkout -b dev origin/
+创建远程origin的dev分支到本地
+$git branch --set-upstream-to <branch-name> origin/<branch-name>
+$git branch --set-upstream-to=origin/dev dev
+创建本地分支和远程分支的链接关系
+$ git rebase
+本地未push的分叉提交历史整理成直线
+$git tag <tagname> /  git tag <tagname(V1.0)> <commit id>
+在指定commit id上打标签 
+$git tag -a <tagname> -m <msg> <sommit id>
+创建带有说明的标签，-a指定标签名 -m指定说明文字
+$git tag
+查看所有标签
+$git tag -d <tagname>
+删除标签
+$git push origin <tagname>
+推送标签到远程
+$git push origin --tags
+推送所有标签到远程
+$git push origin :refs/tags/v0.9
+删除远程标签（先执行删除本地操作，在执行删除远程）
+
+
+
+$ssh-keygen -t rsa -C "yourmail@xxx.com"
+$ssh-keygen -t rsa -f ~/.ssh/id_rsa_ee -C "yourmail@xxx.com"
+"ex-dingshikun001.pingan.com.cn"
+"15221590052@163.com"
+ssh-agent bash
+
+
+$ git log --graph --pretty=oneline --abbrev-commit
